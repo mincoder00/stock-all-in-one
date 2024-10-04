@@ -1,6 +1,6 @@
 kis:
   appkey: "####"
   appsecret: "####"
-naver-api:
-  client-id: "####"
-  client-secret: "####"
+naver:
+  clientid: "####"
+  clientsecret: "####"

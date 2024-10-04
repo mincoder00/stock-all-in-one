@@ -26,9 +26,9 @@ public class NewsController {
     @Autowired
     HttpSession session;
 
-    @Value("${naver-api.client-id}")
+    @Value("${naver.clientid}")
     private String clientId;
-    @Value("${naver-api.client-secret}")
+    @Value("${naver.clientsecret}")
     private String clientSecret;
 
     @GetMapping("/media/news")
