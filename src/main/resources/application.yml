@@ -1,7 +1,6 @@
 kis:
-  appkey: "PSAisdpecekvZTIItZ0ZZlDtvgDAeHAm4yrr"
-  appsecret: "Hf2MUW8hBenFhhUXsXNEYR40/7BEq10E7qyU6qfx3yrwvD9xGwVT3Vs+UGMAWAhIclnwhMw5tKCIqtcShTDMFN/K+Fksmq8Mr0+tnQGehqkZ5Y+Irf9KM2RWc+e9leU2Y24VhhrI3zBr50LINviZrqHsS8ZYPq7XGRG/o3aaYDoQHHKTB+U="
-
+  appkey: "####"
+  appsecret: "####"
 naver-api:
-  client-id: "jQKlxrVjHP7yTU8I_WoP"
-  client-secret: "QAHnqnbUmV"
+  client-id: "####"
+  client-secret: "####"
