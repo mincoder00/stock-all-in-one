@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}">
+<head>
+    <title>개별 주가 정보</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header-section {
+            background: linear-gradient(135deg, #007bff, #6610f2);
+            color: white;
+            padding: 50px 0;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: none;
+            font-weight: bold;
+        }
+        .table {
+            margin-bottom: 0;
+        }
+        .table th, .table td {
+            border-top: none;
+        }
+        .price-info {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .price-change {
+            font-size: 1.2rem;
+        }
+        .fixed-text {
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="header-section">
+        <div class="container">
+            <h1 class="display-4" th:text="${equity.stck_shrn_iscd}"></h1>
+            <p class="lead" th:text="${equity.bstp_kor_isnm}">개별 주가 정보</p>
+            <p><strong>조회시간:</strong> <span th:text="${jobDate}"></span></p>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="price-info">
+                    <span th:text="${equity.stck_prpr}"></span>원
+                    <span class="price-change ml-3" th:text="${equity.prdy_vrss}" th:style="${equity.prdy_vrss_sign<'3'?'color:red':(equity.prdy_vrss_sign>'3'?'color:blue':'color:black')}"></span>
+                    <span class="fixed-text" th:text="'원'" style="color: grey;"></span>
+
+                    <span class="price-change" th:text="${equity.prdy_ctrt}" th:style="${equity.prdy_vrss_sign<'3'?'color:red':(equity.prdy_vrss_sign>'3'?'color:blue':'color:black')}"></span>
+                    <span class="fixed-text" th:text="'%'" style="color: grey;"></span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>주요 지표</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr>
+                            <th>PER</th>
+                            <td th:text="${equity.per}"></td>
+                            <th>EPS</th>
+                            <td th:text="${equity.eps}"></td>
+                        </tr>
+                        <tr>
+                            <th>PBR</th>
+                            <td th:text="${equity.pbr}"></td>
+                            <th>BPS</th>
+                            <td th:text="${equity.bps}"></td>
+                        </tr>
+                        <tr>
+                            <th>52주 최고가</th>
+                            <td th:text="${equity.w52_hgpr}"></td>
+                            <th>52주 최저가</th>
+                            <td th:text="${equity.w52_lwpr}"></td>
+                        </tr>
+                        <tr>
+                            <th>52주 최고가 대비 현재가 비율</th>
+                            <td th:text="${equity.w52_hgpr_vrss_prpr_ctrt}"></td>
+                            <th>52주 최저가 대비 현재가 비율</th>
+                            <td th:text="${equity.w52_lwpr_vrss_prpr_ctrt}"></td>
+                        </tr>
+                        <tr>
+                            <th>외국인 순매수 수량</th>
+                            <td th:text="${equity.frgn_ntby_qty}"></td>
+                            <th>전일 대비 거래량 비율</th>
+                            <td th:text="${equity.prdy_vrss_vol_rate}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

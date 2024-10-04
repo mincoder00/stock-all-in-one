@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}">
+<head>
+    <title>지수</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header-section {
+            background: linear-gradient(135deg, #007bff, #6610f2);
+            color: white;
+            padding: 50px 0;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: none;
+            font-weight: bold;
+        }
+        .table {
+            margin-bottom: 0;
+        }
+        .table th {
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="header-section">
+        <div class="container">
+            <h1 class="display-4">지수 정보</h1>
+            <p class="lead">국내 및 해외 주요 지수 현황</p>
+            <p><strong>조회시간:</strong> <span th:text="${jobDate}"></span></p>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h2>국내 지수</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                        <tr>
+                            <th>지수명</th>
+                            <th>지수</th>
+                            <th>증감</th>
+                            <th>증감률</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="indexData : ${indicesKor}">
+                            <td th:text="${indexData.output1.hts_kor_isnm}"></td>
+                            <td th:text="${indexData.output1.bstp_nmix_prpr}"></td>
+                            <td th:text="${indexData.output1.bstp_nmix_prdy_vrss}" th:style="${indexData.output1.prdy_vrss_sign<'3'?'color:red':(indexData.output1.prdy_vrss_sign>'3'?'color:blue':'color:black')}"></td>
+                            <td th:text="${indexData.output1.bstp_nmix_prdy_ctrt}" th:style="${indexData.output1.prdy_vrss_sign<'3'?'color:red':(indexData.output1.prdy_vrss_sign>'3'?'color:blue':'color:black')}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>해외 지수</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                        <tr>
+                            <th>지수명</th>
+                            <th>지수</th>
+                            <th>증감</th>
+                            <th>증감률</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="indexData : ${indicesFor}">
+                            <td th:text="${indexData.output1.hts_kor_isnm}"></td>
+                            <td th:text="${indexData.output1.ovrs_nmix_prpr}"></td>
+                            <td th:text="${indexData.output1.ovrs_nmix_prdy_vrss}" th:style="${indexData.output1.prdy_vrss_sign<'3'?'color:red':(indexData.output1.prdy_vrss_sign>'3'?'color:blue':'color:black')}"></td>
+                            <td th:text="${indexData.output1.prdy_ctrt}" th:style="${indexData.output1.prdy_vrss_sign<'3'?'color:red':(indexData.output1.prdy_vrss_sign>'3'?'color:blue':'color:black')}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+    <title>StockAllInOne</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">스탁올인원</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/indices">지수정보</a>
+                <li class="nav-item">                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/chat">실시간채팅</a>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="https://finance.naver.com/"  target="_blank">네이버금융</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="https://kr.investing.com/"  target="_blank">인베스팅닷컴</a>
+                </li>
+            </ul>
+            <form action="/equities/" onsubmit="this.action = this.action + this.stockCode.value; this.submit();" class="d-flex" role="search">
+                <input class="form-control me-2" type="search" name="stockCode" placeholder="종목코드" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- 기본 템플릿 안에 삽입될 내용 Start -->
+<th:block layout:fragment="content"></th:block>
+<!-- 기본 템플릿 안에 삽입될 내용 End -->
+<script th:src="@{/bootstrap.min.js}"></script>
+</body>
+</html>
