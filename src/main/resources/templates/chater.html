@@ -139,7 +139,7 @@
             });
 
             $("#button-join").on("click", function() {
-                websocket = new WebSocket("ws://localhost:8080/ws/chat");
+                websocket = new WebSocket("ws://stock-all-in-one-env.eba-bsemssu6.ap-northeast-2.elasticbeanstalk.com/ws/chat/ws/chat");
                 websocket.onmessage = onMessage;
                 websocket.onopen = onOpen;
                 websocket.onclose = onClose;
