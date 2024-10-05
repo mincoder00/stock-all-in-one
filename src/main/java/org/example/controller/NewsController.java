@@ -71,6 +71,7 @@ public class NewsController {
 
 
             model.addAttribute("news", items);
+            model.addAttribute("searchText", searchText);
         } catch (IOException e) {
             e.printStackTrace();
         }
