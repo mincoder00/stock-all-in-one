@@ -28,7 +28,7 @@
 5. **네이버금융 & 인베스팅닷컴**
    - 유용한 외부 사이트 링크 연계
 
-* 구체적인 기능, 화면은 pdf를 참고하세요.
+* [구체적인 기능, 화면은 pdf를 참고하세요.](https://github.com/mincoder00/STOCK-ALL-IN-ONE/blob/main/detail.pdf)
 
 ## 기술 스택
 - Backend: Java, Springboot
