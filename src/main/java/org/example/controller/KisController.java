@@ -125,6 +125,7 @@ public class KisController {
 
     public String getJobDateTime() {
         LocalDateTime now = LocalDateTime.now();
+        now = now.plusHours(9);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return now.format(formatter);
     }
