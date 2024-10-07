@@ -9,6 +9,13 @@
             padding-left: 24px;
             padding-right: 24px;
         }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand svg {
+            margin-right: 10px;
+        }
     </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
@@ -17,7 +24,15 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">스탁올인원</a>
+        <a class="navbar-brand" href="/">
+            <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100" height="100" rx="20" fill="#007bff"/>
+                <path d="M20 50 L40 70 L60 30 L80 50" stroke="white" stroke-width="8" fill="none"/>
+                <circle cx="40" cy="70" r="6" fill="white"/>
+                <circle cx="60" cy="30" r="6" fill="white"/>
+            </svg>
+            스탁올인원
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,7 +41,8 @@
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/indices">지수정보</a>
-                <li class="nav-item">                <li class="nav-item">
+                <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/chat">실시간채팅</a>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="https://finance.naver.com/"  target="_blank">네이버금융</a>
