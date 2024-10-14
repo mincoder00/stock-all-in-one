@@ -74,7 +74,6 @@ public class KisController {
                 Tuples.of("1009", "U"),
                 Tuples.of("0025", "U"),
                 Tuples.of("1043", "U"),
-                Tuples.of("0021", "U"),
                 Tuples.of("1003", "U")
         );
         List<Tuple5<String, String, String, String, String>> iscdsAndOtherVariable2 = Arrays.asList(
