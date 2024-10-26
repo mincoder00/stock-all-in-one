@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import java.time.Instant;
+
 @Component
 public class AccessTokenManager {
     @Autowired
@@ -14,14 +16,17 @@ public class AccessTokenManager {
     private final WebClient webClient;
     public static String ACCESS_TOKEN;
     public static long last_auth_time = 0;
+    private static final long TOKEN_EXPIRY_DURATION = 24 * 60 * 60 * 1000;
 
     public AccessTokenManager(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder.baseUrl(KisConfig.REST_BASE_URL).build();
     }
 
     public String getAccessToken() {
-        if (ACCESS_TOKEN == null) {
+        long currentTime = Instant.now().toEpochMilli();
+        if (ACCESS_TOKEN == null || (currentTime - last_auth_time) > TOKEN_EXPIRY_DURATION) {
             ACCESS_TOKEN = generateAccessToken();
+            last_auth_time = currentTime;
             System.out.println("generate ACCESS_TOKEN: " + ACCESS_TOKEN);
         }
 
